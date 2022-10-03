@@ -25,6 +25,6 @@ for n in range(100, N, 10):
 probs = pd.Series(conditional_ps, name='Conditional');
 fig, ax = plt.subplots(1, 1)
 probs.plot(xlabel='$N$ (Number of families tested)', ylabel='Probability of 2 boys', ax=ax);
-plt.show()
+st.write(fig)
 
-print('aaa')
+# print('aaa')
