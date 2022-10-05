@@ -13,7 +13,8 @@ def is_two_boys(tup):
     return tup[0][0] == 'm' and tup[1][0] == 'm'
 
 
-dt = int(datetime.now().timestamp() % 120)
+dt = int(datetime.now().timestamp() / 120)
+print(dt)
 
 @st.cache  # 👈 This function will be cached
 def make_data(dt):
