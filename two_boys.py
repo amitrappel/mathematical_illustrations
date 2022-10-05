@@ -17,11 +17,13 @@ def make_data():
 
     # Do something really slow in here!
     history = [((choice(genders), choice(days)), (choice(genders), choice(days))) for _ in range(N)]
+    conditional_ps = []
     for n in range(100, N, 10):
         conditional_history = [tup for tup in history[:n] if ('m', 'Tuesday') in tup]
-        conditional_ps = []
         conditional_ps.append(sum([is_two_boys(tup) for tup in conditional_history]) /
                               len(conditional_history))
+        if n % 500 == 0:
+            st.write(f"{n} iterations")
     return conditional_ps
 
 
@@ -33,4 +35,5 @@ n = st.slider('N', min_value=10, max_value=10000)  # 👈 this is a widget
 probs = pd.Series(conditional_ps, name='Conditional');
 fig, ax = plt.subplots(1, 1)
 probs[:n].plot(xlabel='$N$ (Number of families tested)', ylabel='Probability of 2 boys', ax=ax);
+# plt.show()
 fig
