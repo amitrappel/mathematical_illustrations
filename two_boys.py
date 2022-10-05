@@ -11,7 +11,7 @@ combos = list(product(genders, days))
 def is_two_boys(tup):
     return tup[0][0] == 'm' and tup[1][0] == 'm'
 
-@st.cache  # 👈 This function will be cached
+# @st.cache  # 👈 This function will be cached
 def make_data():
     N = 10000
 
