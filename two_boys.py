@@ -48,7 +48,7 @@ n = st.slider('N', min_value=10, max_value=10000)  # 👈 this is a widget
 
 probs = pd.Series(conditional_ps, name='Conditional');
 fig, ax = plt.subplots(1, 1)
-ax.axhline(13/27)
-ax.text(x=10, y=13/27, s=r'$\frac{13}{27}$', fontsize=14, style='oblique')
+ax.axhline(13/27, color='red')
+ax.text(x=n, y=13/27, s=r'$\frac{13}{27}$', fontsize=14, style='oblique')
 probs[:n].plot(xlabel='$N$ (Number of families tested)', ylabel='Probability of 2 boys', ax=ax);
 st.write(fig)
