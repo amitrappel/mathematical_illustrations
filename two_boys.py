@@ -17,7 +17,7 @@ What is the probability that the man has two boys?
 
 @st.cache  # 👈 This function will be cached
 def make_data(dt):
-    N = 10000
+    N = 20000
 
     # Do something really slow in here!
     history = [((choice(genders), choice(days)), (choice(genders), choice(days))) for _ in range(N)]
