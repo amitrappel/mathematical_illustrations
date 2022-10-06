@@ -9,15 +9,14 @@ genders = ['m', 'f']
 days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 combos = list(product(genders, days))
 
-def is_two_boys(tup):
-    return tup[0][0] == 'm' and tup[1][0] == 'm'
+question = '''
+A man states that he has two children and that at least one of them is a boy born on a Tuesday. 
+What is the probability that the man has two boys?
+'''
 
 
-dt = int(datetime.now().timestamp() / 120)
-print(dt)
-
-@st.cache  # 👈 This function will be cached
-def make_data(dt):
+# @st.cache  # 👈 This function will be cached
+def make_data():
     N = 10000
 
     # Do something really slow in here!
@@ -30,8 +29,19 @@ def make_data(dt):
     return conditional_ps
 
 
+def is_two_boys(tup):
+    return tup[0][0] == 'm' and tup[1][0] == 'm'
 
-conditional_ps = make_data(dt)
+# Page
+
+st.write(question)
+
+button_create_data = st.button('Create new random data')
+if button_create_data:
+    conditional_ps = make_data()
+
+# dt = int(datetime.now().timestamp() / 120)
+# print(dt)
 
 n = st.slider('N', min_value=10, max_value=10000)  # 👈 this is a widget
 
@@ -39,4 +49,4 @@ probs = pd.Series(conditional_ps, name='Conditional');
 fig, ax = plt.subplots(1, 1)
 probs[:n].plot(xlabel='$N$ (Number of families tested)', ylabel='Probability of 2 boys', ax=ax);
 # plt.show()
-fig
+st.write(fig)
