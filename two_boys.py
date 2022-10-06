@@ -43,14 +43,14 @@ if button_create_data:
     dt_data = datetime.now().timestamp()
     conditional_ps = make_data(dt_data)
 
-n = st.slider('N', min_value=10, max_value=10000)  # 👈 this is a widget
+    n = st.slider('N', min_value=10, max_value=10000)  # 👈 this is a widget
 
-try:
-    conditional_ps = make_data(dt_data)
-except:
-    conditional_ps = make_data(dt)
-probs = pd.Series(conditional_ps, name='Conditional');
-fig, ax = plt.subplots(1, 1)
-probs[:n].plot(xlabel='$N$ (Number of families tested)', ylabel='Probability of 2 boys', ax=ax);
-# plt.show()
-st.write(fig)
+    try:
+        conditional_ps = make_data(dt_data)
+    except:
+        conditional_ps = make_data(dt)
+    probs = pd.Series(conditional_ps, name='Conditional');
+    fig, ax = plt.subplots(1, 1)
+    probs[:n].plot(xlabel='$N$ (Number of families tested)', ylabel='Probability of 2 boys', ax=ax);
+    # plt.show()
+    st.write(fig)
