@@ -15,8 +15,8 @@ What is the probability that the man has two boys?
 '''
 
 
-# @st.cache  # 👈 This function will be cached
-def make_data():
+@st.cache  # 👈 This function will be cached
+def make_data(dt):
     N = 10000
 
     # Do something really slow in here!
@@ -32,19 +32,23 @@ def make_data():
 def is_two_boys(tup):
     return tup[0][0] == 'm' and tup[1][0] == 'm'
 
-# Page
+### Page
 
 st.write(question)
 
+dt = datetime.now().timestamp()
+
 button_create_data = st.button('Create new random data')
 if button_create_data:
-    conditional_ps = make_data()
-
-# dt = int(datetime.now().timestamp() / 120)
-# print(dt)
+    dt_data = datetime.now().timestamp()
+    conditional_ps = make_data(dt_data)
 
 n = st.slider('N', min_value=10, max_value=10000)  # 👈 this is a widget
 
+try:
+    conditional_ps = make_data(dt_data)
+except:
+    conditional_ps = make_data(dt)
 probs = pd.Series(conditional_ps, name='Conditional');
 fig, ax = plt.subplots(1, 1)
 probs[:n].plot(xlabel='$N$ (Number of families tested)', ylabel='Probability of 2 boys', ax=ax);
