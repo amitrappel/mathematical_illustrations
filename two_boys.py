@@ -36,8 +36,8 @@ def is_two_boys(tup):
 
 st.write(question)
 
-dt = datetime.now().timestamp()
-conditional_ps = make_data(dt_data)
+dt = int(datetime.now().timestamp() / 10000)
+conditional_ps = make_data(dt)
 
 button_create_data = st.button('Create new random data')
 if button_create_data:
