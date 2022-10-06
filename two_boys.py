@@ -44,7 +44,7 @@ if button_create_data:
     dt_data = datetime.now().timestamp()
     conditional_ps = make_data(dt_data)
 
-n = st.slider('N', min_value=10, max_value=10000)  # 👈 this is a widget
+n = st.slider('N', min_value=1, max_value=N)  # 👈 this is a widget
 
 probs = pd.Series(conditional_ps, name='Conditional');
 fig, ax = plt.subplots(1, 1)
