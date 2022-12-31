@@ -2,8 +2,9 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 
+# Parametrization taken from here: https://en.wikipedia.org/wiki/Rose_(mathematics)
 
-question = 'Choose?'
+question = 'Please choose k'
 st.write(question)
 k = st.slider('k', min_value=1, max_value=20, value=4)  # 👈 this is a widget
 
