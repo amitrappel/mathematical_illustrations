@@ -13,5 +13,5 @@ y = np.cos(k*t) * np.sin(t)
 
 fig, ax = plt.subplots(1, 1)
 ax.set(xlim=(-2, 2), ylim=(-2, 2))
-ax.scatter(x, y)
+ax.scatter(x, y, s=3, c='red')
 st.write(fig)
