@@ -7,7 +7,7 @@ question = 'Choose?'
 st.write(question)
 k = st.slider('k', min_value=1, max_value=20, value=4)  # 👈 this is a widget
 
-t = np.linspace(1e-3, k*np.pi, 1000)
+t = np.linspace(1e-3, k*np.pi, 12345)
 x = np.cos(k*t) * np.cos(t)
 y = np.cos(k*t) * np.sin(t)
 
